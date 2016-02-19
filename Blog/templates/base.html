@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>小林的博客</title>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=""/>
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/base.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/index.css'%}" rel="stylesheet"/>
+
+    <!--[if lt IE 9]>
+    <script src="../static/js/modernizr.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <header>
+        <div class="logo f_l">
+            <a href="/"><img src="{% static 'images/logo.png' %}"></a>
+        </div>
+        <nav id="topnav" class="f_r">
+            <ul>
+                <a href="/index/"  id="topnav_current">首页</a>
+                <a href="#" target="_blank">关于我</a>
+                <a href="#" target="_blank">文章</a>
+                <a href="#" target="_blank">心情</a>
+                <a href="#" target="_blank">相册</a>
+                <a href="#" target="_blank">留言</a>
+            </ul>
+            <!--<script src="{% static 'js/nav.js' %}"></script>-->
+        </nav>
+    </header>
+    <article>
+        {% block content %}
+        {% endblock %}
+    </article>
+</body>
+</html>

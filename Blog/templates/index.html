@@ -1,0 +1,61 @@
+﻿{% extends  'base.html'%}
+{% block content %}
+<div class="l_box f_l">
+
+    <!-- banner代码 结束 -->
+    <div class="topnews">
+        <h2>
+
+            <b>文章</b>推荐
+        </h2>
+        {% for post in blog_list%}
+        <div class="blogs">
+            <!--<figure><img src="../static/images/01.jpg"></figure>-->
+            <ul>
+                <div class="dayTitle">
+                    {{post.publish_time|date:"Y-m-d"}}
+                </div>
+                <h3>
+                    <a href="{% url 'detailblog' id=post.id %}">{{post.caption}}</a>
+                </h3>
+                <p>{{post.content|truncatechars:260}}</p>
+                <h4><a class="readmore" href="{% url 'detailblog' id=post.id %}">阅读全文</a></h4>
+                <p class="autor">
+                    {% for tag in post.tags.all%}
+                    <span class="lm f_l">
+                        <a href="">
+                            {{tag.tag_name}}
+                        </a>
+                    </span>
+                    {% endfor %}
+                    <span class="dtime f_l">{{post.publish_time|date:"Y-m-d H:i:s"}}</span><span class="viewnum f_r">浏览（<a href="/">459</a>）</span>
+                    <span class="pingl f_r"><span class="ds-thread-count" data-thread-key="{{post.id}}" data-count-type="comments"></span></span>
+                </p>
+            </ul>
+        </div>
+        {% endfor %}
+        <nav>
+            <ul class="pagination">
+                {% for page_number in blog_list.paginator.page_range %}
+                {% ifequal page_number topics.number %}
+                <li><a href="#">{{ page_number }}</a></li>
+                {% else %}
+                <li><a href="?page={{ page_number }}">{{ page_number }}</a></li>
+                {% endifequal %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"xxxxx"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+{% endblock %}
