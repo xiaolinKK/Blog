@@ -1,0 +1,32 @@
+﻿{% extends  'base.html'%}
+{% block content %}
+<div class="l_box f_l">
+
+</div>
+<div class="r_box f_r">
+    <div class="tit01 calendar calendar-d" id="ca">
+       
+    </div>
+    <div class="cloud">
+        <h3>标签云</h3>
+        <ul>
+            {% for tag in tags%}
+            <li><a href="/">{{tag.tag_name}}</a></li>
+            {%endfor%}
+        </ul>
+    </div>
+    <div class="tuwen">
+        <h3>图文推荐</h3>
+        <ul></ul>
+    </div>
+    <div class="ad">
+        <img src="">
+    </div>
+    <div class="links">
+        <h3>
+            <span>[<a href="/">申请友情链接</a>]</span>友情链接
+        </h3>
+        <ul></ul>
+    </div>
+</div>
+{% endblock %}
