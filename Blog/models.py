@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.db import models
 from django.contrib import admin
 from django.core.urlresolvers import reverse
@@ -11,6 +12,8 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.tag_name
+    def __unicode__(self):
+         return self.tag_name
     class Meta:
         verbose_name = '标签'
         verbose_name_plural = '标签' 

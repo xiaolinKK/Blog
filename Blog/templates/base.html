@@ -15,7 +15,20 @@
     <!--[if lt IE 9]>
     <script src="../static/js/modernizr.js"></script>
     <![endif]-->
-    
+    <script>
+        $(function() {
+            $("#navbar ul li").each(function(i, item) {
+                $(item).removeClass("active");
+            });
+            var url = location.href;
+            if (url.indexOf("index") >= 0 || url.indexOf("blog") >= 0) {
+                $("#index").addClass("active");
+            } else if (url.indexOf("about") >= 0) {
+                $("#about").addClass("active");
+            }
+
+        })
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
